@@ -1,0 +1,31 @@
+{{>header}}
+{{>navbar}}
+<section class="container my-4">
+    <div class="mb-3"><a href="/deleteall" class="btn btn-danger">Delete All Customers</a></div>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>name</th>
+                <th>Current Balance</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each allCustomers}}
+            <tr>
+                <td>{{this._id}}</td>
+                <td>{{this.fname}} {{this.lname}}</td>
+                <td>{{this.currentBalance}}</td>
+                <td>
+                    <a href="/transaction/addBalance/{{this._id}}" class="mx-2 btn btn-primary">Add Balance</a>
+                    <a href="/transaction/withdraw/{{this._id}}" class="mx-2 btn btn-success">Withdraw Balance</a>
+                    <a href="/showsingle/{{this._id}}" class="mx-2 btn btn-warning">Show Details</a>
+                    <a href="/delete/{{this._id}}" class="mx-2 btn btn-danger">Delete</a>
+                </td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</section>
+{{>footer}}

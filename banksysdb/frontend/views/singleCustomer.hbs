@@ -1,0 +1,40 @@
+{{>header}}
+{{>navbar}}
+<section class="container my-3">
+    <div class="border border-primary p-5 m-3">
+        <h3>First Name: {{customer.fname}}</h3>
+        <p>Last Age: {{customer.lname}}</p>
+        <p>Email: {{customer.Email}}</p>
+        <label>Address :</label>
+        <div class="border border-warning p-2">
+        <p>City: {{customer.city}}</p>
+        <p>Street: {{customer.street}}</p>
+        <p>Building Number: {{customer.building}}</p>
+        </div>
+        <p>Intial Balance: {{customer.IntialBalance}}</p>
+        <p>current Balance: {{customer.currentBalance}}</p>
+    </div>
+</section>
+<section class="container my-4">
+    <h2 class="text-center" >transactions</h2>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Type</th>
+                <th>Amount</th>
+                
+
+            </tr>
+        </thead>
+        <tbody>
+            {{#each customer.transaction}}
+            <tr>
+                <td>{{this.type}}</td>
+                <td>{{this.amount}}</td>
+              
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</section>
+{{>footer}}
